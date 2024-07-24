@@ -35,7 +35,7 @@ const paths = {
 const publishOptions = {
   provider: 'github',
   owner: 'valory-xyz',
-  repo: 'olas-operate-app',
+  repo: 'pearl-superfest',
   releaseType: 'draft',
   token: process.env.GH_TOKEN,
   private: false,
