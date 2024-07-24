@@ -359,7 +359,7 @@ async function launchNextApp() {
     env: {
       GNOSIS_RPC:
         process.env.NODE_ENV === 'production'
-          ? process.env.FORK_URL
+          ? process.env.PROD_RPC
           : process.env.DEV_RPC,
       NEXT_PUBLIC_BACKEND_PORT:
         process.env.NODE_ENV === 'production'

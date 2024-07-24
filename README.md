@@ -161,7 +161,7 @@ For production usage, set `NODE_ENV=production`.
 
 </details>
 
-<details><summary><h4>FORK_URL</h4></summary>
+<details><summary><h4>PROD_RPC</h4></summary>
 
 **This variable is required for both development and production.**
 **Must be a Gnosis Mainnet RPC URL.**
@@ -171,7 +171,7 @@ For production usage, set `NODE_ENV=production`.
 
 You can get a Gnosis RPC from [Nodies](https://www.nodies.app/).
 
-Once you have a Gnosis Mainnet RPC URL, set `FORK_URL=YOUR_RPC_URL_HERE` in your .env file.
+Once you have a Gnosis Mainnet RPC URL, set `PROD_RPC=YOUR_RPC_URL_HERE` in your .env file.
 
 Note: this must be an external RPC. If you decide to use Hardhat for testing on a mainnet fork, do _not_ set your Hardhat Node URL here.
 </details>
@@ -222,7 +222,7 @@ You can also monitor all transactions, and fund your accounts with any token tha
 1. Signup to [Tenderly](https://tenderly.co/), and select the plan you desire. **The Free plan should suffice for most users**.
 2. Go to *Forks* under the *Development* tab -- in the left sidebar of your dashboard.
 3. Click *Create Fork*, select "Gnosis Chain" as the network, and use Chain ID `100`.
-4. Copy the RPC url into the appropriate .env variables in your repository. (Recommended to set both `FORK_URL` & `DEV_RPC` to this RPC url during development).
+4. Copy the RPC url into the appropriate .env variables in your repository. (Recommended to set both `PROD_RPC` & `DEV_RPC` to this RPC url during development).
 5. Click the *Fund Accounts* button to fund your accounts with XDAI (native token) and [OLAS](https://gnosisscan.io/token/0xce11e14225575945b8e6dc0d4f2dd4c570f79d9f).
 
 </details>
