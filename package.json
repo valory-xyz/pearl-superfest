@@ -40,8 +40,8 @@
   },
   "main": "electron/main.js",
   "name": "pearl-superfest",
-  "productName": "Pearl",
-  "description": "An all-in-one application designed to streamline your entry into the world of autonomous agents and earning OLAS through staking.",
+  "productName": "Pearl Superfest",
+  "description": "A version of Olas Pearl, designed for Optimism Superfest.",
   "scripts": {
     "build": "rm -rf dist/ && node build.tester.js",
     "build:frontend": "cd frontend && yarn build && rm -rf ../electron/.next && cp -r .next ../electron/.next && rm -rf ../electron/public && cp -r public ../electron/public",

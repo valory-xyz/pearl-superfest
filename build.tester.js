@@ -18,7 +18,7 @@ const main = async () => {
     config: {
       appId: 'xyz.valory.pearl-superfest',
       artifactName: '${productName}-${version}-${platform}-${arch}.${ext}',
-      productName: 'Pearl',
+      productName: 'Pearl Superfest',
       files: ['electron/**/*', 'package.json'],
       directories: {
         output: 'dist',

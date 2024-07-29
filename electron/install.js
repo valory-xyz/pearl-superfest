@@ -180,7 +180,7 @@ function installOperatePackageUnix(path) {
 }
 
 function reInstallOperatePackageUnix(path) {
-  console.log(appendInstallationLog('Reinstalling pearl CLI'));
+  logger.electron('Reinstalling pearl CLI');
   runCmdUnix(`${path}/venv/bin/python3.10`, [
     '-m',
     'pip',

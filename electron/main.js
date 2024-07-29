@@ -127,7 +127,7 @@ const createTray = () => {
       },
     },
   ]);
-  tray.setToolTip('Pearl');
+  tray.setToolTip('Pearl Superfest');
   tray.setContextMenu(contextMenu);
 
   ipcMain.on('tray', (_event, status) => {
@@ -169,7 +169,7 @@ const createSplashWindow = () => {
     height: APP_WIDTH,
     resizable: false,
     show: true,
-    title: 'Pearl',
+    title: 'Pearl Superfest',
     frame: false,
     webPreferences: {
       nodeIntegration: true,
@@ -190,7 +190,7 @@ const HEIGHT = 700;
 const createMainWindow = () => {
   const width = isDev ? 840 : APP_WIDTH;
   mainWindow = new BrowserWindow({
-    title: 'Pearl',
+    title: 'Pearl Superfest',
     resizable: false,
     draggable: true,
     frame: false,
