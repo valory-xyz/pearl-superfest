@@ -6,7 +6,7 @@ const config = {
   networks: {    
     hardhat: {
       forking: {
-        url: process.env.FORK_URL,      
+        url: process.env.PROD_RPC,      
       },
       chainId: 100,
     },    

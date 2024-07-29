@@ -17,7 +17,7 @@ const isProd = !isDev;
 // Paths
 const dotOperateDirectory = isProd
   ? path.join(os.homedir(), '.operate')
-  : '.operate';
+  : path.join(process.cwd(), '.operate');
 
 const paths = {
   dotOperateDirectory,
@@ -35,7 +35,7 @@ const paths = {
 const publishOptions = {
   provider: 'github',
   owner: 'valory-xyz',
-  repo: 'olas-operate-app',
+  repo: 'pearl-superfest',
   releaseType: 'draft',
   token: process.env.GH_TOKEN,
   private: false,

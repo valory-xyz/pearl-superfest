@@ -1,10 +1,10 @@
 # Security Policy
 
-This document outlines security procedures and general policies for the `olas-operate-app` project.
+This document outlines security procedures and general policies for the `pearl-superfest` project.
 
 ## Supported Versions
 
-The following table shows which versions of `olas-operate-app` are currently being supported with security updates.
+The following table shows which versions of `pearl-superfest` are currently being supported with security updates.
 
 | Version         | Supported          |
 |-----------------|--------------------|
@@ -13,7 +13,7 @@ The following table shows which versions of `olas-operate-app` are currently bei
 
 ## Reporting a Vulnerability
 
-The `olas-operate-app` team and community take all security bugs in `olas-operate-app` seriously. Thank you for improving the security of `olas-operate-app`. We appreciate your efforts and responsible disclosure and will make every effort to acknowledge your contributions.
+The `pearl-superfest` team and community take all security bugs in `pearl-superfest` seriously. Thank you for improving the security of `pearl-superfest`. We appreciate your efforts and responsible disclosure and will make every effort to acknowledge your contributions.
 
 Report security bugs by emailing `info@valory.xyz`.
 

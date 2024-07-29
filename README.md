@@ -1,5 +1,5 @@
 <h1 align="center">
-<b>Pearl</b>
+<b>Pearl Superfest</b>
 </h1>
 
 Pearl is an application used to run autonomous agents powered by the OLAS Network.
@@ -13,7 +13,6 @@ Pearl is an application used to run autonomous agents powered by the OLAS Networ
 - Javascript / TypeScript
 - Python (3.10)
 - Poetry (^1.7.1)
-- Docker Engine
 
 ## Getting Started
 
@@ -117,38 +116,6 @@ If promoted to run `pipx ensurepath`, run it.
 
 </details>
 
-<details><summary><h4>Docker</h4></summary>
-
-<h5>Linux</h5>
-
-*Update the `ubuntu.22.04~jammy` version string to your current OS version before running the following command:*
-
-```bash
-VERSION_STRING=5:24.0.7-1~ubuntu.22.04~jammy
-sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
-sudo usermod -aG docker $USER
-```
-
-If you are unsure about your current OS version/codename, you can find it by running:
-
-```bash
-lsb_release -a
-```
-
-<h5>MacOS</h5>
-
-You can [install Docker Desktop via the Docker website](https://www.docker.com/products/docker-desktop/). Be sure to select the correct version for your system's CPU architecture.
-
-If you are unsure about your system's CPU architecture, run the following command:
-
-```bash
-uname -p
-# x86 64    Intel chip
-# arm64     Apple chip
-```
-
-</details>
-
 <h3>Setting up your .env file</h3>
 
 Create an `.env` file in the root directory, or rename `.env.example` to `.env`.
@@ -161,7 +128,7 @@ For production usage, set `NODE_ENV=production`.
 
 </details>
 
-<details><summary><h4>FORK_URL</h4></summary>
+<details><summary><h4>PROD_RPC</h4></summary>
 
 **This variable is required for both development and production.**
 **Must be a Gnosis Mainnet RPC URL.**
@@ -171,7 +138,7 @@ For production usage, set `NODE_ENV=production`.
 
 You can get a Gnosis RPC from [Nodies](https://www.nodies.app/).
 
-Once you have a Gnosis Mainnet RPC URL, set `FORK_URL=YOUR_RPC_URL_HERE` in your .env file.
+Once you have a Gnosis Mainnet RPC URL, set `PROD_RPC=YOUR_RPC_URL_HERE` in your .env file.
 
 Note: this must be an external RPC. If you decide to use Hardhat for testing on a mainnet fork, do _not_ set your Hardhat Node URL here.
 </details>
@@ -183,7 +150,7 @@ This environment variable is only used when `NODE_ENV=development` is set.
 In `development` mode, it is used throughout Pearl as the main RPC.
 
 If you're using Hardhat, you can set `DEV_RPC=http://localhost:8545`.
-Or, you can use another, external RPC URL that wish to test on, ensuring that the chain ID is 100 (Gnosis Mainnet's chain ID).
+Or, you can use another, external RPC URL that wish to test on (**preferrably a Tenderly development RPC**), ensuring that the chain ID is 100 (Gnosis Mainnet's chain ID).
 
 </details>
 
@@ -222,7 +189,7 @@ You can also monitor all transactions, and fund your accounts with any token tha
 1. Signup to [Tenderly](https://tenderly.co/), and select the plan you desire. **The Free plan should suffice for most users**.
 2. Go to *Forks* under the *Development* tab -- in the left sidebar of your dashboard.
 3. Click *Create Fork*, select "Gnosis Chain" as the network, and use Chain ID `100`.
-4. Copy the RPC url into the appropriate .env variables in your repository. (Recommended to set both `FORK_URL` & `DEV_RPC` to this RPC url during development).
+4. Copy the RPC url into the appropriate .env variables in your repository. (Recommended to set both `PROD_RPC` & `DEV_RPC` to this RPC url during development).
 5. Click the *Fund Accounts* button to fund your accounts with XDAI (native token) and [OLAS](https://gnosisscan.io/token/0xce11e14225575945b8e6dc0d4f2dd4c570f79d9f).
 
 </details>
@@ -258,5 +225,5 @@ poetry run python scripts/transfer_olas.py PATH_TO_KEY_CONTAINING_OLAS ADDRESS_T
 
 <h2>Notes and Common Issues</h2>
 
-- If Pearl is running, it will kill any attempt to run another Pearl instance. This is to ensure there are no port conflicts.
-- Enivironment variables are cached in the terminal, if you change them while your terminal is open, you will need to restart the terminal.
+- If Pearl is running, it will kill any attempt to run another Pearl instance. This is to ensure there are no conflicts, such as those arising from port assignment.
+- Enivironment variables may be cached in the terminal, if you change them while your terminal is open, you may need to restart the terminal.

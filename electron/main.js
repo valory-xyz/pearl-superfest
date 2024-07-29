@@ -17,7 +17,7 @@ const http = require('http');
 const AdmZip = require('adm-zip');
 const { TRAY_ICONS, TRAY_ICONS_PATHS } = require('./icons');
 
-const { Env } = require('./install');
+const { setupDarwin, setupUbuntu, Env } = require('./install');
 
 const { paths } = require('./constants');
 const { killProcesses } = require('./processes');
@@ -127,7 +127,7 @@ const createTray = () => {
       },
     },
   ]);
-  tray.setToolTip('Pearl');
+  tray.setToolTip('Pearl Superfest');
   tray.setContextMenu(contextMenu);
 
   ipcMain.on('tray', (_event, status) => {
@@ -169,7 +169,7 @@ const createSplashWindow = () => {
     height: APP_WIDTH,
     resizable: false,
     show: true,
-    title: 'Pearl',
+    title: 'Pearl Superfest',
     frame: false,
     webPreferences: {
       nodeIntegration: true,
@@ -190,7 +190,7 @@ const HEIGHT = 700;
 const createMainWindow = () => {
   const width = isDev ? 840 : APP_WIDTH;
   mainWindow = new BrowserWindow({
-    title: 'Pearl',
+    title: 'Pearl Superfest',
     resizable: false,
     draggable: true,
     frame: false,
@@ -359,7 +359,7 @@ async function launchNextApp() {
     env: {
       GNOSIS_RPC:
         process.env.NODE_ENV === 'production'
-          ? process.env.FORK_URL
+          ? process.env.PROD_RPC
           : process.env.DEV_RPC,
       NEXT_PUBLIC_BACKEND_PORT:
         process.env.NODE_ENV === 'production'
@@ -427,14 +427,13 @@ ipcMain.on('check', async function (event, _argument) {
   // Setup
   try {
     event.sender.send('response', 'Checking installation');
-    if (!isDev) {
-      if (platform === 'darwin') {
-        //await setupDarwin(event.sender);
-      } else if (platform === 'win32') {
-        // TODO
-      } else {
-        //await setupUbuntu(event.sender);
-      }
+
+    if (platform === 'darwin') {
+      await setupDarwin(event.sender);
+    } else if (platform === 'win32') {
+      // TODO
+    } else {
+      await setupUbuntu(event.sender);
     }
 
     if (isDev) {
