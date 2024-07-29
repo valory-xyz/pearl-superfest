@@ -17,10 +17,18 @@ const TrafficLightIcon = styled.div`
 
 const RedLight = styled(TrafficLightIcon)`
   background-color: #fe5f57;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(0.9);
+  }
 `;
 
 const YellowLight = styled(TrafficLightIcon)`
   background-color: #febc2e;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(0.9);
+  }
 `;
 
 const DisabledLight = styled(TrafficLightIcon)`
@@ -60,7 +68,9 @@ export const TopBar = () => {
         <DisabledLight />
       </TrafficLights>
 
-      <Text>{`Pearl (alpha) ${envName ? `(${envName})` : ''}`.trim()}</Text>
+      <Text>
+        {`Pearl Superfest (alpha) ${envName ? `(${envName})` : ''}`.trim()}
+      </Text>
     </TopBarContainer>
   );
 };
